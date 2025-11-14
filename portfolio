@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muhammed Anas K — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0e0d0c;
+  --card:#1a1a1a;
+  --accent:#c9a37a;
+  --text:#ffffff;
+  --muted:#cfcfcf;
+  --radius:18px;
+  --shadow:0 8px 28px rgba(0,0,0,0.45);
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{
+  background: var(--bg);
+  color: var(--text);
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.06) 0%, transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.04) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(225deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 1000px 1000px, 900px 900px, 70px 70px, 70px 70px;
+  background-attachment: fixed;
+}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(0,0,0,0.45);padding:18px 42px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1)}
+nav a{color:var(--muted);text-decoration:none;margin:0 16px;font-weight:600;transition:0.3s}
+nav a:hover{color:var(--accent)}
+.logo{font-size:26px;font-weight:900;color:var(--accent)}
+
+/* HERO */
+.hero{padding:100px 40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:25px;position:relative}
+.hero img{width:160px;height:160px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow);opacity:1;transform:scale(1);transition:1s ease}
+.hero h1{font-size:42px;font-weight:900;letter-spacing:-1px;opacity:1;transform:translateY(0);transition:1s ease}
+.hero p{max-width:620px;color:var(--muted);line-height:1.6;font-size:18px;opacity:1;transform:translateY(0);transition:1s ease .3s}
+.phrase{color:var(--accent);font-weight:900;display:inline-block}
+
+/* CTA */
+.cta{display:flex;gap:18px;margin-top:12px;opacity:1;transform:translateY(0);transition:1s ease .5s}
+.cta a{padding:12px 22px;background:var(--accent);color:#000;font-weight:700;border-radius:var(--radius);text-decoration:none;transition:.3s}
+.cta a:hover{opacity:.8}
+
+/* SECTION */
+section{padding:80px 40px;max-width:1200px;margin:auto}
+.sec-title{font-size:32px;font-weight:900;color:var(--accent);margin-bottom:28px;text-align:center}
+.card{background:var(--card);padding:32px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.4s}
+.card:hover{transform:translateY(-6px)}
+
+/* GRID */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+/* SKILLS */
+.skill{padding:14px;background:#222;border-radius:var(--radius);text-align:center;font-weight:600;border:1px solid rgba(255,255,255,0.08)}
+
+/* TIMELINE */
+.timeline{border-left:2px solid var(--accent);padding-left:24px;display:flex;flex-direction:column;gap:32px}
+.timeline-item{position:relative}
+.timeline-item::before{content:'';position:absolute;left:-11px;top:5px;width:14px;height:14px;background:var(--accent);border-radius:50%}
+.timeline-item h3{margin-bottom:6px}
+.timeline-item p{color:var(--muted);line-height:1.6;font-size:15px}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:1s ease}
+.reveal.show{opacity:1;transform:none}
+  /* Phrase animation styles */
+  .phrase-anim{display:inline-block;perspective:900px;} .phrase-anim span{display:inline-block;transform-origin:center;backface-visibility:hidden;} @keyframes flip3d{0%{transform:rotateX(90deg);opacity:0;}40%{transform:rotateX(-15deg);opacity:1;}100%{transform:rotateX(0deg);opacity:1;}}
+  .phrase-anim.play{animation:pop .9s cubic-bezier(.2,.9,.2,1)}
+  .phrase-anim::after{content:'';display:block;height:3px;background:var(--accent);width:0;margin:6px auto 0;border-radius:4px;transition:width .45s ease}
+  .phrase-anim.play::after{width:60%}
+  @keyframes pop{
+    0%{transform:translateY(8px) scale(.98);opacity:0}
+    40%{transform:translateY(-6px) scale(1.03);opacity:1}
+    100%{transform:translateY(0) scale(1)}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">MAK</div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.linkedin.com/in/anas-ashraf-094803381" target="_blank" style="color:var(--accent)">LinkedIn</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="profile.jpg" alt="Profile" id="hero-img">
+  <h1 id="hero-title">Hi, I'm <span style="color:var(--accent)">Muhammed Anas K</span></h1>
+  <h2 class="phrase" id="hero-phrase">Transforming business problems into data‑driven solutions</h2>
+  <p id="hero-desc">MBA (Business Analytics). Experienced Financial Analyst skilled in building dashboards, automating reports, and transforming raw data into clear, actionable insights.</p>
+  <div class="cta" id="hero-cta">
+    <a href="#contact">Hire Me</a>
+    <a href="Financial%20Analyst%20Resume-2.pdf" download>Download CV</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <h2 class="sec-title">About Me</h2>
+  <div class="grid-2">
+    <div class="card">I specialize in translating complex datasets into business-ready insights. My experience at Pondy Roller Flour Mills includes budgeting, reconciliations, and analytical reporting automation.</div>
+    <div class="card">
+      <ul>
+        <li>Built automated dashboards (Power BI)</li>
+        <li>Performed variance & margin analysis</li>
+        <li>Optimized billing workflows using SQL + Excel</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="reveal">
+  <h2 class="sec-title">Experience</h2>
+  <div class="timeline card">
+    <div class="timeline-item">
+      <h3>Financial Analyst — Pondy Roller Flour Mills</h3>
+      <p>Created dashboards, tracked margin performance, automated reports, and performed budgeting analysis.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Finance Intern — 2023</h3>
+      <p>Supported monthly close, variance analysis, data cleaning and backend reporting workflows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+  <h2 class="sec-title">Projects</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Sales Trend Dashboard</h3>
+      <p>Interactive dashboard showing region-wise sales, product mix, and growth KPIs.</p>
+    </div>
+    <div class="card">
+      <h3>Billing Automation System</h3>
+      <p>Reduced billing errors and saved manual hours using SQL + Excel automation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="reveal">
+  <h2 class="sec-title">Skills</h2>
+  <div class="grid-3" style="gap:20px;margin-top:18px">
+    <div class="card">
+      <h3 style="margin-top:0;color:var(--accent)">Core Skills</h3>
+      <ul style="margin-top:12px;color:var(--muted);line-height:1.8">
+        <li>Data analysis & interpretation</li>
+        <li>Financial modelling & forecasting</li>
+        <li>Dashboard design & visualization</li>
+        <li>Data cleaning & ETL (Excel / SQL)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0;color:var(--accent)">Soft Skills</h3>
+      <ul style="margin-top:12px;color:var(--muted);line-height:1.8">
+        <li>Communication & storytelling</li>
+        <li>Problem solving & critical thinking</li>
+        <li>Stakeholder collaboration</li>
+        <li>Attention to detail</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0;color:var(--accent)">Tools & Technologies</h3>
+      <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:10px">
+        <div class="skill">Power BI</div>
+        <div class="skill">Excel</div>
+        <div class="skill">SQL</div>
+        <div class="skill">Python (pandas)</div>
+        <div class="skill">DAX</div>
+        <div class="skill">Tableau</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="reveal">
+  <h2 class="sec-title">Education</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3>MITTAL SCHOOL OF BUSINESS (LPU)</h3>
+      <p class="muted">MBA — Business Analytics (ongoing)</p>
+    </div>
+    <div class="card">
+      <h3>JAMIA HAMDARD (DU)</h3>
+      <p class="muted">Graduated 2024</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <h2 class="sec-title">Contact</h2>
+  <div class="grid-3">
+    <div class="card">Email: anxsmhd@gmail.com</div>
+    <div class="card">Phone: 8137890124</div>
+    <div class="card"><a href="https://www.linkedin.com/in/anas-ashraf-094803381" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:none">LinkedIn Profile</a></div>
+  </div>
+</section>
+
+<script>
+// HERO ANIMATION
+window.onload = ()=>{
+  document.getElementById('hero-img').style.opacity="1";
+  document.getElementById('hero-img').style.transform="scale(1)";
+  document.getElementById('hero-title').style.opacity="1";
+  document.getElementById('hero-title').style.transform="translateY(0)";
+  document.getElementById('hero-desc').style.transform="translateY(0)";
+  document.getElementById('hero-desc').style.opacity="1";
+  document.getElementById('hero-cta').style.opacity="1";
+  document.getElementById('hero-cta').style.transform="translateY(0)";
+
+  // Phrase Rotator
+  const phrases = [
+    'Transforming business problems into data‑driven solutions',
+    'Delivering insights that drive decisions',
+    'Turning analytics into business impact'
+  ];
+  let index = 0;
+  const phraseEl = document.getElementById('hero-phrase'); if(phraseEl) phraseEl.style.opacity = 1;
+
+  function rotatePhrase(){
+    phraseEl.style.opacity = 0;
+    setTimeout(()=>{
+      index = (index + 1) % phrases.length;
+      phraseEl.textContent = phrases[index];
+      phraseEl.style.opacity = 1;
+    }, 400);
+  }
+  setInterval(rotatePhrase, 3200);
+};
+
+// Reveal on Scroll
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){ entry.target.classList.add('show'); }
+  });
+},{threshold:0.15});
+revealElements.forEach(el=>revealObserver.observe(el));
+</script>
+<div id="particles"></div>
+<script>
+// Simple floating particle effect
+const particleContainer = document.getElementById('particles');
+Object.assign(particleContainer.style,{
+  position:'fixed',inset:'0',pointerEvents:'none',zIndex:'0'
+});
+for(let i=0;i<48;i++){
+  const p=document.createElement('div');
+  const size=Math.random()*10+4;
+  const hue = 30 + Math.random()*20; /* warm gold range */
+  const alpha = 0.06 + Math.random()*0.12;
+  Object.assign(p.style,{
+    position:'absolute',borderRadius:'50%',background:`rgba(200,155,74,${alpha})`,
+    width:size+'px',height:size+'px',
+    left:Math.random()*100+'%',top:Math.random()*100+'%',
+    filter:'blur(' + (Math.random()*1.5 + 0.5) + 'px)',
+    animation:`float ${6+Math.random()*8}s ease-in-out infinite`,
+    transform:`translateZ(0)`
+  });
+  particleContainer.appendChild(p);
+}
+</script>
+<style>
+@keyframes float{
+  0%{transform:translateY(0) translateX(0)}
+  50%{transform:translateY(-40px) translateX(15px)}
+  100%{transform:translateY(0) translateX(0)}
+}
+#particles div:nth-child(odd){animation-direction:alternate-reverse}
+</style>
+<script>
+// 3D Flip phrase animation
+(function(){
+  const phraseEl = document.getElementById('hero-phrase');
+  if(!phraseEl) return;
+  const wrapper = document.createElement('span');
+  wrapper.className = 'phrase-anim';
+  const inner = document.createElement('span');
+  inner.textContent = phraseEl.textContent;
+  wrapper.appendChild(inner);
+  phraseEl.textContent = '';
+  phraseEl.appendChild(wrapper);
+
+  function animate(){
+    inner.style.animation = 'none';
+    void inner.offsetWidth;
+    inner.style.animation = 'flip3d 0.9s ease';
+  }
+  setTimeout(animate,300);
+
+  const obs = new MutationObserver(()=>{
+    inner.textContent = phraseEl.textContent;
+    animate();
+  });
+  obs.observe(phraseEl,{childList:true,characterData:true,subtree:true});
+})();
+</script>
+</body>
+</html>
